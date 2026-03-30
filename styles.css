@@ -101,9 +101,22 @@ code[class*="language-"], pre[class*="language-"] {
     border-radius: 50%; animation: ringPulse 2s infinite;
 }
 
-/* Animations */
-@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+/* Utility Classes for Enhanced Content */
+.bg-secondary\/5 { background: rgba(139, 92, 246, 0.05); }
+.border-secondary\/20 { border-color: rgba(139, 92, 246, 0.2); }
+.bg-amber-500\/5 { background: rgba(245, 158, 11, 0.05); }
+.border-amber-500\/20 { border-color: rgba(245, 158, 11, 0.2); }
+.bg-rose-500\/5 { background: rgba(244, 63, 94, 0.05); }
+.border-rose-500\/20 { border-color: rgba(244, 63, 94, 0.2); }
+.bg-emerald-500\/5 { background: rgba(16, 185, 129, 0.05); }
+.border-emerald-500\/20 { border-color: rgba(16, 185, 129, 0.2); }
+
+.bg-amber-500\/10 { background: rgba(245, 158, 11, 0.1); }
+.border-amber-500\/30 { border-color: rgba(245, 158, 11, 0.3); }
+
+/* Animation Overlays */
 .animate-fade-in { animation: fadeIn 0.6s var(--transition) forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .text-gradient {
     background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
