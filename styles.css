@@ -1,0 +1,123 @@
+/* Root Variables */
+:root {
+    --primary: #3b82f6;
+    --secondary: #8b5cf6;
+    --dark: #0f172a;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.08);
+    --transition: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Styles & Custom Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.15); }
+
+body { 
+    -webkit-font-smoothing: antialiased; 
+    background-color: var(--dark); 
+    color: #f8fafc; 
+    font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism Panel Fixes */
+.glass-panel {
+    background: rgba(30, 41, 59, 0.4);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--border);
+    border-radius: 32px;
+}
+
+/* Sidebar & Nav Styles */
+.nav-link { 
+    color: #94a3b8; 
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+.nav-link.active { 
+    background: rgba(59, 130, 246, 0.1); 
+    color: #3b82f6; 
+    border-color: rgba(59, 130, 246, 0.2); 
+    box-shadow: 0 10px 20px rgba(59, 130, 246, 0.1);
+}
+.nav-link.completed i[data-lucide="check-circle"] { color: #10b981; }
+
+/* Theory & Module Styles */
+.bg-primary\/5 { background: rgba(59, 130, 246, 0.05); }
+.border-primary\/20 { border-color: rgba(59, 130, 246, 0.2); }
+
+/* Syntax Highlighting Tweaks */
+pre[class*="language-"] {
+    margin: 0 !important;
+    padding: 1.5rem !important;
+    background: #020617 !important;
+    border: none !important;
+    font-size: 0.95rem !important;
+}
+
+code[class*="language-"], pre[class*="language-"] {
+    font-family: 'JetBrains Mono', monospace !important;
+    text-shadow: none !important;
+}
+
+/* Roadmap (Candy Crush style) */
+#roadmap-view { perspective: 1000px; }
+.roadmap-node {
+    width: 90px; height: 90px;
+    border-radius: 50%;
+    background: #1e293b;
+    border: 4px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    position: relative; cursor: pointer; transition: all 0.4s var(--transition);
+}
+
+.roadmap-node.unlocked {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-color: rgba(255,255,255,0.2);
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4);
+}
+
+.roadmap-node.completed::after {
+    content: '★'; position: absolute; top: -10px; right: -10px;
+    width: 30px; height: 30px; background: #fbbf24; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 14px; box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.roadmap-label {
+    position: absolute; top: 110%; white-space: nowrap;
+    background: rgba(15,23,42,0.6); backdrop-filter: blur(8px);
+    padding: 4px 12px; border-radius: 8px; border: 1px solid var(--border);
+    color: white; opacity: 0.9;
+}
+
+@keyframes ringPulse {
+    0% { transform: scale(0.9); opacity: 0.7; }
+    100% { transform: scale(1.4); opacity: 0; }
+}
+.node-pulse {
+    position: absolute; inset: -8px; border: 2px solid var(--primary);
+    border-radius: 50%; animation: ringPulse 2s infinite;
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-in { animation: fadeIn 0.6s var(--transition) forwards; }
+
+.text-gradient {
+    background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+    -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* Ace Editor Polish */
+#practice-code-editor {
+    background: #0d1117;
+}
+
+.ace_gutter { background: #010409 !important; border-right: 1px solid var(--border) !important; color: #484f58 !important; }
+
+/* Score Summary */
+#score-badge > div {
+    animation: fadeIn 0.4s var(--transition);
+}
